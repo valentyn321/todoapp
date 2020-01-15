@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.utils import timezone
 from main.models import Todo
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def home(request):
 	todo_items = Todo.objects.all().order_by("-added_date")
 	return render(request, 'main/index.html', {"todo_items": todo_items})

@@ -10,13 +10,39 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	</head>
 	<body>
-		<nav class="navbar navbar-dark bg-dark">
-  			<!-- Navbar content -->
-  			<a class="navbar-brand" href="#">ToDo L!ist</a>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		  <a class="navbar-brand" href="{% url 'home' %}">ToDo L!st</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+		    <ul class="navbar-nav">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">About us</a>
+		      </li>
+		    </ul>
+		  </div>
+		  	<div class="navbar-nav">
+		  		{% if user.is_authenticated %}
+		  			<a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>	
+		  			<a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+
+		  		{% else %}
+			    	<a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+			    	<a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+			    {% endif %}
+		    </div>
 		</nav>
 
-		<div class="container">
+		<div class="container mt-4">
+			{% if messages %}
+				{% for message in messages %}
+					<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+				{% endfor %}
+			{% endif %}
+
 			{% block content %}{% endblock content %}
+			
 		</div>	
 
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
