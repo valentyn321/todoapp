@@ -1,7 +1,8 @@
 from django.db import models
 
 class Todo(models.Model):
-	added_date = models.DateTimeField()
-	text = models.CharField(max_length=200)
+    added_date = models.DateTimeField()
+    text = models.CharField(max_length=200)
+    status = models.BooleanField(default=False)
 
 
