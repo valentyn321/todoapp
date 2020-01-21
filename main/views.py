@@ -38,8 +38,6 @@ def complete_todo(request, todo_id):
 
 def delete_todo(request, todo_id):
     Todo.objects.get(id=todo_id).delete()
-    a = request.META.get('HTTP_REFERER')
-    print(a)
     return HttpResponseRedirect("/")
 
 @login_required

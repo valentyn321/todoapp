@@ -1,8 +1,40 @@
+html,
 body {
-    background: white url("../images/back.jpg")
+  height: 100%;
 }
 
-h2 {
+body {
+    background: white url("../images/back.jpg");
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h2, h5 {
 	color: white;
 }
 
+.social a {
+    font-size: 30px;
+    padding: 20px;
+    
+}
+
+.fa-github { 
+    color: black;
+}
+
+.fa-instagram {
+    color: #ff004d;
+}
+
+footer {
+    background-color: #343a40;
+    height: 70px;
+    flex: 0 0 auto;
+    
+
+}
+
+.content {
+  flex: 1 0 auto;
