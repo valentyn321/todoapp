@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 @login_required
 def home(request):
-
+    print(Profile.objects.all())
     todo_items = Todo.objects.filter(status=False, user_id=request.user.id).order_by("-added_date")
     completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date")[:5] 
     return render(request, 'main/index.html', {"todo_items": todo_items, 'completed_items': completed_items})
