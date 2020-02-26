@@ -5,35 +5,78 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from users.models import Profile
 from django.contrib.auth.models import User
+from django.http import JsonResponse
+
+def home_ajax(request):
+    print(Profile.objects.all())
+    todo_items = Todo.objects.filter(status=False, user_id=request.user.id).order_by("-added_date")
+    completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date")[:5]
+    data = {
+        'todo_items': todo_items,
+        'completed_items': completed_items
+    } 
+    return JsonResponse(data)
+
+
 
 @login_required
 def home(request):
-    print(Profile.objects.all())
     todo_items = Todo.objects.filter(status=False, user_id=request.user.id).order_by("-added_date")
     completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date")[:5] 
     return render(request, 'main/index.html', {"todo_items": todo_items, 'completed_items': completed_items})
 
-def add_new(request):
-    current_date = timezone.now()
-    content = request.POST["content"]
-    complete = False 
-    created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id)
-    return HttpResponseRedirect("/")
-    
 
-def complete_todo(request, todo_id):
+def add_new_ajax(request):
+    current_date = timezone.now()
+    content = request.POST["text"]
+    complete = False
+    created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id)
+    data = {
+        'is_null': True
+    } 
+    return JsonResponse(data)
+
+
+
+# def add_new(request):
+#     current_date = timezone.now()
+#     content = request.POST["content"]
+#     complete = False 
+#     created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id)
+#     return HttpResponseRedirect("/")
+  
+
+def complete_todo_ajax(request, todo_id):
 
     completed = Todo.objects.get(id=todo_id)
     completed.status = True
-    print('all right!')
     completed.save()
 
     user_id = request.user.id
     active_profile = Profile.objects.get(user=user_id)
     active_profile.number_of_todos += 1
     active_profile.save()
+    data = {
+        'is_null': True
+    } 
+    return JsonResponse(data)
+
+
+
+
+# def complete_todo(request, todo_id):
+
+#     completed = Todo.objects.get(id=todo_id)
+#     completed.status = True
+#     print('all right!')
+#     completed.save()
+
+#     user_id = request.user.id
+#     active_profile = Profile.objects.get(user=user_id)
+#     active_profile.number_of_todos += 1
+#     active_profile.save()
     
-    return HttpResponseRedirect("/")
+#     return HttpResponseRedirect("/")
 
 
 def delete_todo(request, todo_id):
