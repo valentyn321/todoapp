@@ -31,8 +31,9 @@ def add_new_ajax(request):
     content = request.POST["text"]
     complete = False
     created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id)
+    
     data = {
-        'is_null': True
+        'is_not_null': True
     } 
     return JsonResponse(data)
 
@@ -56,9 +57,11 @@ def complete_todo_ajax(request, todo_id):
     active_profile = Profile.objects.get(user=user_id)
     active_profile.number_of_todos += 1
     active_profile.save()
+    
     data = {
-        'is_null': True
+        'if_success': "Todo_completed!"
     } 
+
     return JsonResponse(data)
 
 
