@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div  id='add_new_div'class="row mt-4">
+        <div class="col">
+            <h2>What have you to do?</h2>
+            <form id="add_new" method="post" class="form-inline"> {% csrf_token %}
+                <input type="text" id="text" name="content" class="form-control mb-2 mr-sm-2" placeholder="I have to code at least 2 hours...">
+                <button type="submit" id="add" class="btn btn-primary mb-2">Add</button>
+            </form>
+        </div>      
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <ul class="list-group">
+
+                {% for todo in todo_list %}
+                    <li class="list-group-item mb-2">{{ todo.text }}
+                        <div class="float-right">   
+                            <form class="my_class_complete" id="todo_{{ todo.id }}" data-href="{% url 'complete_todo_ajax' todo.id %}" method="post"> {% csrf_token %}
+                                <button type="submit" class="btn btn-success">l have already did this</button>
+                            </form>
+                        </div>
+                    </li>
+
+                {% endfor %}
+
+                <h2>Last completed tasks:</h2>
+
+                {% for completed_item in completed_items %}
+                    <li class="list-group-item text-muted mt-2">{{ completed_item.text }}
+                        <div class="float-right">   
+                            <form class="my_class_delete" id="todo_{{ completed_item.id }}" data-href="{% url 'delete_todo_ajax' completed_item.id %}" method="post"> {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+
+                
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{% static 'main/js/scripts.js' %}"></script>
+{% endblock %}

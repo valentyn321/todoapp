@@ -1,13 +1,20 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
-               <h2>Last completed tasks:</h2>
+    <h2>Last completed tasks:</h2>
+
+    <div class="row mt-4">
+        <div class="col">
+            <ul class="list-group">
 
                 {% for completed_item in completed_items %}
-                    <li class="list-group-item text-muted mt-2">{{ completed_item.text }}
+                    <li class="list-group-item text-muted mt-2">{{ completed_item.text }} 
                         <div class="float-right">   
-                            <form action="delete_todo/{{ completed_item.id }}/" method="post"> {% csrf_token %}
+                            <form class="my_class_delete_list" id="todo_{{ completed_item.id }}" data-href="{% url 'delete_todo_ajax' completed_item.id %}" method="post"> {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
                     </li>
@@ -18,3 +25,7 @@
         </div>
     </div>
 {% endblock content %}
+
+{% block javascript %}
+    <script src="{% static 'main/js/scripts.js' %}"></script>
+{% endblock %}

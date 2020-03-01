@@ -1,14 +1,40 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Todo
-from django.http import HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
 from users.models import Profile
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.views.generic import ListView
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
+class TodoListView(ListView):
+    model = Todo
+    template_name = 'main/todo_list.html'
+
+    def get_queryset(self):
+        qs = super().get_queryset() 
+        return qs.filter(status=False).order_by("-added_date")
+    # @method_decorator(login_required)
+    # def get(self, request, *args, **kwargs):
+    #     todo_items = Todo.objects.filter(status=False, user_id=request.user.id).order_by("-added_date")
+    #     completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date")[:5]
+    #     return render(request, self.template_name, {"todo_items": todo_items, 'completed_items': completed_items})
+
+
+class CompletedTodoListView(ListView):
+    model = Todo
+    template_name = 'main/completed_todos.html'
+    
+    @method_decorator(login_required)
+    def get(self, request, *args, **kwargs):
+        completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date") 
+        return render(request, self.template_name, {'completed_items': completed_items})
+
+
+
 
 def home_ajax(request):
-    print(Profile.objects.all())
     todo_items = Todo.objects.filter(status=False, user_id=request.user.id).order_by("-added_date")
     completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date")[:5]
     data = {
@@ -16,15 +42,6 @@ def home_ajax(request):
         'completed_items': completed_items
     } 
     return JsonResponse(data)
-
-
-
-@login_required
-def home(request):
-    todo_items = Todo.objects.filter(status=False, user_id=request.user.id).order_by("-added_date")
-    completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date")[:5] 
-    return render(request, 'main/index.html', {"todo_items": todo_items, 'completed_items': completed_items})
-
 
 def add_new_ajax(request):
     current_date = timezone.now()
@@ -36,16 +53,6 @@ def add_new_ajax(request):
         'is_not_null': True
     } 
     return JsonResponse(data)
-
-
-
-# def add_new(request):
-#     current_date = timezone.now()
-#     content = request.POST["content"]
-#     complete = False 
-#     created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id)
-#     return HttpResponseRedirect("/")
-  
 
 def complete_todo_ajax(request, todo_id):
 
@@ -66,28 +73,10 @@ def complete_todo_ajax(request, todo_id):
 
 
 
-
-# def complete_todo(request, todo_id):
-
-#     completed = Todo.objects.get(id=todo_id)
-#     completed.status = True
-#     print('all right!')
-#     completed.save()
-
-#     user_id = request.user.id
-#     active_profile = Profile.objects.get(user=user_id)
-#     active_profile.number_of_todos += 1
-#     active_profile.save()
-    
-#     return HttpResponseRedirect("/")
-
-
-def delete_todo(request, todo_id):
+def delete_todo_ajax(request, todo_id):
     Todo.objects.get(id=todo_id).delete()
-    return HttpResponseRedirect("/")
+    return JsonResponse({})
 
-@login_required
-def completed_todos(request):
 
-    completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date") 
-    return render(request, 'main/completed_todos.html', {'completed_items': completed_items})
+
+
