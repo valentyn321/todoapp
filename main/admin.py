@@ -3,4 +3,5 @@ from .models import Todo
 
 
 admin.site.register(Todo)
+# admin.site.register(Category)
 

@@ -18,10 +18,10 @@
         <div class="col">
             <ul class="list-group">
 
-                {% for todo in todo_list %}
-                    <li class="list-group-item mb-2">{{ todo.text }}
+                {% for todo_item in todo_items %}
+                    <li class="list-group-item mb-2">{{ todo_item.text }}
                         <div class="float-right">   
-                            <form class="my_class_complete" id="todo_{{ todo.id }}" data-href="{% url 'complete_todo_ajax' todo.id %}" method="post"> {% csrf_token %}
+                            <form class="my_class_complete" id="todo_{{ todo.id }}" data-href="{% url 'complete_todo_ajax' todo_item.id %}" method="post"> {% csrf_token %}
                                 <button type="submit" class="btn btn-success">l have already did this</button>
                             </form>
                         </div>
