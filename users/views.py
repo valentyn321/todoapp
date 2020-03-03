@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import View 
 
 
-class RegisterView(View):
+class RegisterView(View): #class-based register view
     form = UserRegisterForm()
     template_name = 'users/register.html'
     
@@ -29,7 +29,7 @@ class RegisterView(View):
 
 
 
-# def register(request):
+# def register(request): #func-based register view
 #     profile = Profile()
 #     if request.method == 'POST':
 #         form = UserRegisterForm(request.POST)

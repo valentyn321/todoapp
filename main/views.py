@@ -4,50 +4,39 @@ from .models import Todo
 from users.models import Profile
 from django.contrib.auth.models import User
 from django.http import JsonResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 class TodoListView(ListView):
     model = Todo
     template_name = 'main/todo_list.html'
+    context_object_name = 'todo_items'
+
+    def get_context_data(self, **kwargs):
+        todo_items = Todo.objects.filter(status=False, user_id=self.request.user.id).order_by("-added_date")
+        completed_items = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")[:5]
+        context = super().get_context_data(**kwargs)
+        context['todo_items'] = todo_items
+        context['completed_items'] = completed_items
+        return context
     
-
-
-    # def get_queryset(self):
-    #     qs = super().get_queryset() 
-    #     uncomleted_todos = qs.filter(status=False).order_by("-added_date")
-    #     completed_todos = qs.filter(status=True).order_by("-added_date")
-    #     return uncomleted_todos, completed_todos
-
-
-    @method_decorator(login_required)
-    def get(self, request, *args, **kwargs):
-        todo_items = Todo.objects.filter(status=False, user_id=request.user.id).order_by("-added_date")
-        completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date")[:5]
-        return render(request, self.template_name, {"todo_items": todo_items, 'completed_items': completed_items})
 
 
 class CompletedTodoListView(ListView):
     model = Todo
     template_name = 'main/completed_todos.html'
+    ontext_object_name = 'completed_todos'
+
+    def get_context_data(self, **kwargs):
+        completed_todos = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")
+        context = super().get_context_data(**kwargs)
+        context['completed_todos'] = completed_todos
+        return context
     
-    @method_decorator(login_required)
-    def get(self, request, *args, **kwargs):
-        completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date") 
-        return render(request, self.template_name, {'completed_items': completed_items})
 
+#There are some views for ajax_requests
 
-
-
-def home_ajax(request):
-    todo_items = Todo.objects.filter(status=False, user_id=request.user.id).order_by("-added_date")
-    completed_items = Todo.objects.filter(status=True, user_id=request.user.id).order_by("-added_date")[:5]
-    data = {
-        'todo_items': todo_items,
-        'completed_items': completed_items
-    } 
-    return JsonResponse(data)
 
 def add_new_ajax(request):
     current_date = timezone.now()
@@ -56,8 +45,9 @@ def add_new_ajax(request):
     created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id)
     
     data = {
-        'is_not_null': True
-    } 
+        'created_obj': created_obj
+    }
+
     return JsonResponse(data)
 
 def complete_todo_ajax(request, todo_id):
@@ -71,9 +61,7 @@ def complete_todo_ajax(request, todo_id):
     active_profile.number_of_todos += 1
     active_profile.save()
     
-    data = {
-        'if_success': "Todo_completed!"
-    } 
+    data = {} 
 
     return JsonResponse(data)
 

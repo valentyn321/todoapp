@@ -21,7 +21,7 @@
                 {% for todo_item in todo_items %}
                     <li class="list-group-item mb-2">{{ todo_item.text }}
                         <div class="float-right">   
-                            <form class="my_class_complete" id="todo_{{ todo.id }}" data-href="{% url 'complete_todo_ajax' todo_item.id %}" method="post"> {% csrf_token %}
+                            <form class="my_class_complete" id="todo_{{ todo.pk }}" data-href="{% url 'complete_todo_ajax' todo_item.pk %}" method="post"> {% csrf_token %}
                                 <button type="submit" class="btn btn-success">l have already did this</button>
                             </form>
                         </div>
@@ -34,7 +34,7 @@
                 {% for completed_item in completed_items %}
                     <li class="list-group-item text-muted mt-2">{{ completed_item.text }}
                         <div class="float-right">   
-                            <form class="my_class_delete" id="todo_{{ completed_item.id }}" data-href="{% url 'delete_todo_ajax' completed_item.id %}" method="post"> {% csrf_token %}
+                            <form class="my_class_delete" id="todo_{{ completed_item.pk }}" data-href="{% url 'delete_todo_ajax' completed_item.pk %}" method="post"> {% csrf_token %}
                                     <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>

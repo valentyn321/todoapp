@@ -5,7 +5,6 @@ from .views import TodoListView, CompletedTodoListView
 
 urlpatterns = [
 	path('', TodoListView.as_view(), name="home"),
-	path('ajax/home', views.home_ajax, name="home_ajax"),
     path('completed_todos', CompletedTodoListView.as_view(), name="completed_todos"),
 	# path('add_new', views.add_new, name="add_new"),
 	path('ajax/add_new', views.add_new_ajax, name="add_new_ajax"),
