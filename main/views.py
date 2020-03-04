@@ -7,6 +7,8 @@ from django.http import JsonResponse
 from django.views.generic import ListView, CreateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 
 class TodoListView(ListView):
     model = Todo
@@ -26,13 +28,18 @@ class TodoListView(ListView):
 class CompletedTodoListView(ListView):
     model = Todo
     template_name = 'main/completed_todos.html'
-    ontext_object_name = 'completed_todos'
+    context_object_name = 'completed_todos'
 
-    def get_context_data(self, **kwargs):
-        completed_todos = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")
-        context = super().get_context_data(**kwargs)
-        context['completed_todos'] = completed_todos
-        return context
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")
+        return queryset
+
+    # def get_context_data(self, **kwargs):
+    #     completed_todos = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")
+    #     context = super().get_context_data(**kwargs)
+    #     context['completed_todos'] = completed_todos
+    #     return context
     
 
 #There are some views for ajax_requests
@@ -41,14 +48,13 @@ class CompletedTodoListView(ListView):
 def add_new_ajax(request):
     current_date = timezone.now()
     content = request.POST["text"]
-    complete = False
-    created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id)
-    
-    data = {
-        'created_obj': created_obj
-    }
-
-    return JsonResponse(data)
+    if content != "":
+        complete = False
+        created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id)
+    else:
+        messages.warning(request, f'Fill up task field!')
+        
+    return JsonResponse({})
 
 def complete_todo_ajax(request, todo_id):
 
