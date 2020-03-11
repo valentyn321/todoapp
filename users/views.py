@@ -5,6 +5,7 @@ from .models import Profile
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import View 
+from django.views.decorators.csrf import csrf_exempt
 
 
 class RegisterView(View): #class-based register view
@@ -24,7 +25,7 @@ class RegisterView(View): #class-based register view
             profile.user = user
             profile.save()            
             messages.success(request, f'Account created successfully!')
-            return redirect('login')
+            return redirect('home')
 
 
 

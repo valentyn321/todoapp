@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Todo
+from .models import Todo, Category
 from users.models import Profile
 from django.contrib.auth.models import User
 from django.http import JsonResponse
@@ -18,9 +18,11 @@ class TodoListView(ListView):
     def get_context_data(self, **kwargs):
         todo_items = Todo.objects.filter(status=False, user_id=self.request.user.id).order_by("-added_date")
         completed_items = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")[:5]
+        category_list = Category.objects.all()
         context = super().get_context_data(**kwargs)
         context['todo_items'] = todo_items
         context['completed_items'] = completed_items
+        context['category_list'] = category_list
         return context
     
 
@@ -48,9 +50,10 @@ class CompletedTodoListView(ListView):
 def add_new_ajax(request):
     current_date = timezone.now()
     content = request.POST["text"]
+    category = Category.objects.get(id=request.POST["categ"])
     if content != "":
         complete = False
-        created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id)
+        created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id, category=category)
     else:
         messages.warning(request, f'Fill up task field!')
         

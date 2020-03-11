@@ -3,11 +3,13 @@ var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
     $("#add_new").submit(function(e) {
         e.preventDefault();
         var text = document.getElementById("text").value;
+        var categ = $('#category_select').find(":selected").attr("id");
         $.ajax({
             type: "POST",
             url: "/ajax/add_new",
             data: {
                 'text': text,
+                'categ': categ,
                 'csrfmiddlewaretoken': csrfToken,
             },
             success: function() {
