@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Todo, Category
+from .forms import TodoForm
 from users.models import Profile
 from django.contrib.auth.models import User
 from django.http import JsonResponse
@@ -14,6 +15,7 @@ class TodoListView(ListView):
     model = Todo
     template_name = 'main/todo_list.html'
     context_object_name = 'todo_items'
+    form = TodoForm
 
     def get_context_data(self, **kwargs):
         todo_items = Todo.objects.filter(status=False, user_id=self.request.user.id).order_by("-added_date")
@@ -23,6 +25,7 @@ class TodoListView(ListView):
         context['todo_items'] = todo_items
         context['completed_items'] = completed_items
         context['category_list'] = category_list
+        context['form'] = self.form
         return context
     
 
@@ -51,9 +54,10 @@ def add_new_ajax(request):
     current_date = timezone.now()
     content = request.POST["text"]
     category = Category.objects.get(id=request.POST["categ"])
+    date = request.POST['date']
     if content != "":
         complete = False
-        created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id, category=category)
+        created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id, category=category, deadline=date)
     else:
         messages.warning(request, f'Fill up task field!')
         
@@ -79,7 +83,3 @@ def complete_todo_ajax(request, todo_id):
 def delete_todo_ajax(request, todo_id):
     Todo.objects.get(id=todo_id).delete()
     return JsonResponse({})
-
-
-
-

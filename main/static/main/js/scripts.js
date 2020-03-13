@@ -2,14 +2,16 @@ var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
 
     $("#add_new").submit(function(e) {
         e.preventDefault();
-        var text = document.getElementById("text").value;
+        var text = document.getElementById("id_text").value;
         var categ = $('#category_select').find(":selected").attr("id");
+        var date = document.getElementById("id_deadline").value;
         $.ajax({
             type: "POST",
             url: "/ajax/add_new",
             data: {
                 'text': text,
                 'categ': categ,
+                'date': date,
                 'csrfmiddlewaretoken': csrfToken,
             },
             success: function() {
@@ -60,4 +62,3 @@ var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
             }
         });
     });
-
