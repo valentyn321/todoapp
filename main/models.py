@@ -18,7 +18,7 @@ class Todo(models.Model):
     text = models.CharField(max_length=256)
     status = models.BooleanField(default=False)
     user_id = models.IntegerField(default=0)
-    deadline = models.DateTimeField(blank=True, null=True)
+    deadline = models.DateTimeField(blank=True, null=True, default=timezone.now().strftime("%Y-%m-%d"))
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default="1")
 
     

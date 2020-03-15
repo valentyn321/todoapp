@@ -18,7 +18,7 @@ class TodoListView(ListView):
     form = TodoForm
 
     def get_context_data(self, **kwargs):
-        todo_items = Todo.objects.filter(status=False, user_id=self.request.user.id).order_by("-added_date")
+        todo_items = Todo.objects.filter(status=False, user_id=self.request.user.id).order_by("deadline")[:5]
         completed_items = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")[:5]
         category_list = Category.objects.all()
         context = super().get_context_data(**kwargs)

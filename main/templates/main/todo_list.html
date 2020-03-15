@@ -48,9 +48,26 @@
         <div class="col">
             <ul class="list-group">
                 {% if todo_items %}
-                <h2>My tasks:</h2>
+                <h2>Coming tasks:</h2>
                 {% for todo_item in todo_items %}
-                    <li class="list-group-item mb-2">{{ todo_item.text }} ({{ todo_item.category }}, {{ todo_item.deadline }})
+                    <li class="list-group-item mb-2">{{ todo_item.text }}
+
+                            <button type="button" 
+                            {% if todo_item.category.title == "General" %}
+                                class="ml-2 btn btn-primary"
+                            {% elif todo_item.category.title == "Work" %}
+                                class="ml-2 btn btn-success"
+                            {% elif todo_item.category.title == "Health/Body" %}
+                                class="ml-2 btn btn-warning"
+                            {% elif todo_item.category.title == "Study" %}
+                                class="ml-2 btn btn-danger"
+                            {% elif todo_item.category.title == "Body" %}
+                                class="ml-2 btn btn-info"
+                            {% elif todo_item.category.title == "Other" %}
+                                class="ml-2 btn btn-secondary"
+                            {% endif %}
+                            >{{ todo_item.category}}</button>
+
                         <div class="float-right">   
                             <form class="my_class_complete" id="todo_{{ todo.pk }}" data-href="{% url 'complete_todo_ajax' todo_item.pk %}" method="post"> {% csrf_token %}
                                 <button type="submit" class="btn btn-success">l have already did this</button>
