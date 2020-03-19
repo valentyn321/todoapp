@@ -27,7 +27,12 @@
                 <ul class="navbar-nav">
                   <li class="nav-item">
                     <a class="nav-link" href="{% url 'completed_todos' %}">All completed Todos</a>
-                  </li>                 
+                  </li>
+                    {% for category in category_list %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'category_template' category.id %}">{{ category.title }}</a>
+                    </li>
+                    {% endfor %}             
                 </ul>
             {% endif %}
           </div>

@@ -39,6 +39,7 @@ class CompletedTodoListView(ListView):
         queryset = super().get_queryset()
         queryset = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")
         return queryset
+    
 
     # def get_context_data(self, **kwargs):
     #     completed_todos = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")
@@ -83,3 +84,13 @@ def complete_todo_ajax(request, todo_id):
 def delete_todo_ajax(request, todo_id):
     Todo.objects.get(id=todo_id).delete()
     return JsonResponse({})
+
+
+#There are some func-based views
+
+def category_template(request, category_id):
+
+    selected_category = Category.objects.get(id=category_id)
+    todos_in_category = Todo.objects.filter(status=False, user_id=request.user.id, category=category_id).order_by("deadline")
+
+    return render(request, 'main/category_template.html', {'selected_category': selected_category, 'todos_in_category': todos_in_category})

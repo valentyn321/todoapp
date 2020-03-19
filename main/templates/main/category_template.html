@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="row mt-4">
+        <div class="col">
+            <ul class="list-group">
+                {% if todos_in_category %}
+                <h2>{{ selected_category }}</h2>
+                {% for todo_in_category in todos_in_category %}
+                    <li class="list-group-item mb-2 mt-2">{{ todo_in_category.text }}
+
+                            <button type="button" 
+                            {% if todo_in_category.category.title == "General" %}
+                                class="ml-2 btn btn-primary"
+                            {% elif todo_in_category.category.title == "Work" %}
+                                class="ml-2 btn btn-success"
+                            {% elif todo_in_category.category.title == "Health/Body" %}
+                                class="ml-2 btn btn-warning"
+                            {% elif todo_in_category.category.title == "Study" %}
+                                class="ml-2 btn btn-danger"
+                            {% elif todo_in_category.category.title == "Body" %}
+                                class="ml-2 btn btn-info"
+                            {% elif todo_in_category.category.title == "Other" %}
+                                class="ml-2 btn btn-secondary"
+                            {% endif %}
+                            >{{ todo_in_category.category}}</button>
+
+                        <div class="float-right">   
+                            <form class="my_class_complete" id="todo_{{ todo_in_category.pk }}" data-href="{% url 'complete_todo_ajax' todo_in_category.pk %}" method="post"> {% csrf_token %}
+                                <button type="submit" class="btn btn-success">l have already did this</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+
+                {% else %}
+
+                <h2 class="mt-5 text-center">Oops... Seems, like you haven't got tasks in this category</h2>
+
+                <form action="{% url 'home' %}"> {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-2">Add new ToDo</button>
+                </form>   
+
+                {% endif %}
+
+                {% if completed_items %}
+                <h2>Last completed tasks:</h2>
+                {% for completed_item in completed_items %}
+                    <li class="list-group-item text-muted mt-2">{{ completed_item.text }}
+                        <div class="float-right">   
+                            <form class="my_class_delete" id="todo_{{ completed_item.pk }}" data-href="{% url 'delete_todo_ajax' completed_item.pk %}" method="post"> {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+                {% endif %}
+
+                
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{% static 'main/js/scripts.js' %}"></script>
+{% endblock %}
