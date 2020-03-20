@@ -92,5 +92,21 @@ def category_template(request, category_id):
 
     selected_category = Category.objects.get(id=category_id)
     todos_in_category = Todo.objects.filter(status=False, user_id=request.user.id, category=category_id).order_by("deadline")
+    category_list = Category.objects.all()
 
-    return render(request, 'main/category_template.html', {'selected_category': selected_category, 'todos_in_category': todos_in_category})
+    context = {
+        'selected_category': selected_category,
+        'todos_in_category': todos_in_category,
+        'category_list': category_list
+    }
+
+    return render(request, 'main/category_template.html', context)
+
+def timer(request):
+    category_list = Category.objects.all()
+    context = {
+
+        'category_list': category_list
+    }
+
+    return render(request, 'main/timer.html', context)

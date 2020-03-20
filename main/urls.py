@@ -10,4 +10,5 @@ urlpatterns = [
     path('ajax/add_new', views.add_new_ajax, name="add_new_ajax"),
     path('ajax/delete_todo/<int:todo_id>/', views.delete_todo_ajax, name="delete_todo_ajax"),
     path('ajax/complete_todo/<int:todo_id>/', views.complete_todo_ajax, name="complete_todo_ajax"),
+    path('timer/', views.timer, name="timer"),
 ]

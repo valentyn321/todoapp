@@ -38,5 +38,10 @@ footer {
 
 .content {
   flex: 1 0 auto;
+}
 
+#countdown {
+    
+    color: white;
 
+}
