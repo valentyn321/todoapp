@@ -50,9 +50,9 @@
                 {% if todo_items %}
                 <h2>Coming tasks:</h2>
                 {% for todo_item in todo_items %}
-                <form action="{% url 'category_template' todo_item.category.id %}"> {% csrf_token %}
-                    <li class="list-group-item mb-2">{{ todo_item.text }}                        
-                            <button type="submit" 
+                
+                    <li class="list-group-item mb-2">{{ todo_item.text }}
+                        <button type="submit" 
                             {% if todo_item.category.title == "General" %}
                                 class="ml-2 btn btn-primary"
                             {% elif todo_item.category.title == "Work" %}
@@ -66,8 +66,7 @@
                             {% elif todo_item.category.title == "Other" %}
                                 class="ml-2 btn btn-secondary"
                             {% endif %}
-                            >{{ todo_item.category}}</button>
-                        
+                            ><a id="category_button" href="{% url 'category_template' todo_item.category.id %}">{{ todo_item.category}}</a></button>
 
                         <div class="float-right">   
                             <form class="my_class_complete" id="todo_{{ todo.pk }}" data-href="{% url 'complete_todo_ajax' todo_item.pk %}" method="post"> {% csrf_token %}
@@ -75,7 +74,7 @@
                             </form>
                         </div>
                     </li>
-                </form>
+               
                 {% endfor %}
                 {% endif %}
 
