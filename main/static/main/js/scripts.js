@@ -16,7 +16,7 @@ var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
             },
             success: function() {
                 $('#add_new')[0].reset(); //скидываем нашу форму
-                $("body").load("http://127.0.0.1:8000/");
+                $('body').load("");
             }
         });
     });
@@ -30,7 +30,7 @@ var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
                 'csrfmiddlewaretoken': csrfToken,
             },
             success: function() {
-               $("body").load("/");
+               $('body').load("/");
             }
         });
     });
@@ -44,7 +44,7 @@ var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
                 'csrfmiddlewaretoken': csrfToken,
             },
             success: function() {
-               $("body").load("/");
+               $('body').load("/");
             }
         });
     });
@@ -58,7 +58,7 @@ var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
                 'csrfmiddlewaretoken': csrfToken,
             },
             success: function() {
-               $("body").load("completed_todos");
+               $('body').load("/");
             }
         });
     });

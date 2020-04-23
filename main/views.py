@@ -1,14 +1,13 @@
 from django.shortcuts import render
 from django.utils import timezone
+from django.views.generic import ListView, CreateView
+from django.contrib import messages
+from django.http import JsonResponse
+from django.contrib.auth.models import User
+
 from .models import Todo, Category
 from .forms import TodoForm
 from users.models import Profile
-from django.contrib.auth.models import User
-from django.http import JsonResponse
-from django.views.generic import ListView, CreateView
-from django.utils.decorators import method_decorator
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 
 
 class TodoListView(ListView):
@@ -18,8 +17,16 @@ class TodoListView(ListView):
     form = TodoForm
 
     def get_context_data(self, **kwargs):
-        todo_items = Todo.objects.filter(status=False, user_id=self.request.user.id).order_by("deadline")[:5]
-        completed_items = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")[:5]
+        todo_items = Todo.objects.filter(
+            status=False,
+            user_id=self.request.user.id
+        ).order_by("deadline")[:5]
+
+        completed_items = Todo.objects.filter(
+            status=True,
+            user_id=self.request.user.id
+        ).order_by("-added_date")[:5]
+
         category_list = Category.objects.all()
         context = super().get_context_data(**kwargs)
         context['todo_items'] = todo_items
@@ -27,7 +34,6 @@ class TodoListView(ListView):
         context['category_list'] = category_list
         context['form'] = self.form
         return context
-    
 
 
 class CompletedTodoListView(ListView):
@@ -37,9 +43,12 @@ class CompletedTodoListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")
+        queryset = Todo.objects.filter(
+            status=True,
+            user_id=self.request.user.id
+        ).order_by("-added_date")
         return queryset
-    
+
 
     # def get_context_data(self, **kwargs):
     #     completed_todos = Todo.objects.filter(status=True, user_id=self.request.user.id).order_by("-added_date")
@@ -58,11 +67,19 @@ def add_new_ajax(request):
     date = request.POST['date']
     if content != "":
         complete = False
-        created_obj = Todo.objects.create(added_date=current_date, text=content, status=complete, user_id=request.user.id, category=category, deadline=date)
+        created_obj = Todo.objects.create(
+            added_date=current_date,
+            text=content,
+            status=complete,
+            user_id=request.user.id,
+            category=category,
+            deadline=date
+        )
+        created_obj.save()
     else:
-        messages.warning(request, f'Fill up task field!')
-        
+        messages.warning(request, 'Fill up task field!')
     return JsonResponse({})
+
 
 def complete_todo_ajax(request, todo_id):
 
@@ -74,11 +91,9 @@ def complete_todo_ajax(request, todo_id):
     active_profile = Profile.objects.get(user=user_id)
     active_profile.number_of_todos += 1
     active_profile.save()
-    
-    data = {} 
+    data = {}
 
     return JsonResponse(data)
-
 
 
 def delete_todo_ajax(request, todo_id):
@@ -101,6 +116,7 @@ def category_template(request, category_id):
     }
 
     return render(request, 'main/category_template.html', context)
+
 
 def timer(request):
     category_list = Category.objects.all()
