@@ -4,7 +4,5 @@ django-crispy-forms==1.8.1
 django-tempus-dominus==5.1.2.13
 gunicorn==20.0.4
 Pillow==7.0.0
-pkg-resources==0.0.0
-pytz==2019.3
 sqlparse==0.3.0
 whitenoise==5.0.1
