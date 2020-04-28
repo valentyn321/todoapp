@@ -24,8 +24,11 @@ class RegisterView(View): #class-based register view
             user.save()
             profile.user = user
             profile.save()            
-            messages.success(request, f'Account created successfully!')
+            messages.success(request, 'Account created successfully!.')
             return redirect('home')
+        else:
+            messages.warning(request, 'Something wrong with your data, check all info one more time :(')
+            return redirect('register')
 
 
 

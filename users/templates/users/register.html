@@ -2,6 +2,10 @@
 
 {% load crispy_forms_tags %}
 
+{% block head %}
+    <link rel="stylesheet" type="text/css" href='../static/users/css/users.css'>
+{% endblock head %} 
+
 {% block content %}
     <div class="container mt-4">
         <form method="POST">
