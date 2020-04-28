@@ -16,7 +16,7 @@ var csrfToken = $('[name="csrfmiddlewaretoken"]').val();
             },
             success: function() {
                 $('#add_new')[0].reset(); //скидываем нашу форму
-                $('body').load("");
+                $('#comming_tasks').load("/ #comming_tasks");
             }
         });
     });

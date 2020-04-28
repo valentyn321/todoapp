@@ -78,21 +78,6 @@
                 {% endfor %}
                 </div>
                 {% endif %}
-
-                {% if completed_items %}
-                <h2>Last completed tasks:</h2>
-                <div id="completed_tasks">
-                    {% for completed_item in completed_items %}
-                        <li class="list-group-item text-muted mt-2">{{ completed_item.text }}
-                            <div class="float-right">   
-                                <form class="my_class_delete" id="todo_{{ completed_item.pk }}" data-href="{% url 'delete_todo_ajax' completed_item.pk %}" method="post"> {% csrf_token %}
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </div>
-                {% endif %}
              </ul>
         </div>
     </div>
