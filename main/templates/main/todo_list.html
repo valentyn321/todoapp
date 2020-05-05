@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
 
     {# Include jQuery for calendar #}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
     {# Django Tempus Dominus assets are included in `{{ form.media }}` #}
     {{ form.media }}
@@ -46,8 +46,8 @@
 
     <div class="row mt-4">
         <div class="col-12">
-            <ul class="list-group">
-                <div id="comming_tasks">
+            <ul class="list-group" id="ul_coming">
+                <div id="coming_tasks">
                 {% if todo_items %}
                 <h2>Coming tasks:</h2>
                   {% for todo_item in todo_items %}

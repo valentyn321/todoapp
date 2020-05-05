@@ -8,8 +8,8 @@
 
     <div class="row mt-4">
         <div class="col">
+            <div id="completed_table">
             <ul class="list-group" id="completed">
-
                 {% for completed_todo in completed_todos %}
                     <li class="list-group-item text-muted mt-2">{{ completed_todo.text }} 
                         <div class="float-right">   
@@ -18,10 +18,9 @@
                             </form>
                         </div>
                     </li>
-                {% endfor %}
-
-                
+                {% endfor %}               
             </ul>
+        </div>
         </div>
     </div>
 {% endblock content %}

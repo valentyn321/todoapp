@@ -41,6 +41,7 @@ class CompletedTodoListView(ListView):
     template_name = 'main/completed_todos.html'
     context_object_name = 'completed_todos'
 
+
     def get_queryset(self):
         queryset = super().get_queryset()
         queryset = Todo.objects.filter(
@@ -91,9 +92,8 @@ def complete_todo_ajax(request, todo_id):
     active_profile = Profile.objects.get(user=user_id)
     active_profile.number_of_todos += 1
     active_profile.save()
-    data = {}
 
-    return JsonResponse(data)
+    return JsonResponse({})
 
 
 def delete_todo_ajax(request, todo_id):
