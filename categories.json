@@ -1,0 +1,30 @@
+[
+{
+  "model": "main.category",
+  "pk": 1,
+  "fields": {
+    "title": "General"
+  }
+},
+{
+  "model": "main.category",
+  "pk": 2,
+  "fields": {
+    "title": "Work"
+  }
+},
+{
+  "model": "main.category",
+  "pk": 3,
+  "fields": {
+    "title": "Study"
+  }
+},
+{
+  "model": "main.category",
+  "pk": 4,
+  "fields": {
+    "title": "Body & Health"
+  }
+}
+]

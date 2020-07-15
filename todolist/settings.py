@@ -26,7 +26,10 @@ SECRET_KEY = 'm!om-s-4jzta)e6-2&ve5z+0#3f-f#9nqcy_=h6#=ckgcpb0$('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['todol1stapp.herokuapp.com']
+ALLOWED_HOSTS = [
+    'todol1stapp.herokuapp.com',
+    '127.0.0.1'
+    ]
 
 
 # Application definition
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     'users',
     'crispy_forms',
     'tempus_dominus',
+    'functional_tests'
 ]
 
 MIDDLEWARE = [
@@ -135,4 +139,4 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = 'login'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
