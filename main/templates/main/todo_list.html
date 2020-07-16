@@ -13,8 +13,8 @@
     {# Include jQuery for calendar #}
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
-    {# Django Tempus Dominus assets are included in `{{ form.media }}` #}
-    {{ form.media }}
+    <!-- {# Django Tempus Dominus assets are included in `{{ form.media }}` #}
+    {{ form.media }} -->
 
 {% endblock head %}
 
@@ -38,7 +38,7 @@
 
                 {{ form.deadline | as_crispy_field }}
 
-                <button type="submit" id="add" class="btn btn-primary btn-lg btn-block mt-2">Add</button>
+                <button type="submit" id="add_button" class="btn btn-primary btn-lg btn-block mt-2">Add</button>
 
             </form>
         </div>
@@ -49,10 +49,11 @@
             <ul class="list-group" id="ul_coming">
                 <div id="coming_tasks">
                 {% if todo_items %}
-                <h2>Coming tasks:</h2>
+                <h3 id="coming_tasks_h2">Coming tasks:</h3>
                   {% for todo_item in todo_items %}
                 
-                    <li class="list-group-item mb-2">{{ todo_item.text }}
+                    <li class="list-group-item mb-2">
+                        <span id="todo_item_text">{{ todo_item.text }}</span>
                         <button type="submit" 
                             {% if todo_item.category.title == "General" %}
                                 class="ml-2 btn btn-primary"
@@ -70,8 +71,8 @@
                             ><a id="category_button" href="{% url 'category_template' todo_item.category.id %}">{{ todo_item.category}}</a></button>
 
                         <div class="float-right">   
-                            <form class="my_class_complete" id="todo_{{ todo.pk }}" data-href="{% url 'complete_todo_ajax' todo_item.pk %}" method="post"> {% csrf_token %}
-                                <button type="submit" class="btn btn-success">l have already did this</button>
+                            <form class="my_class_complete" data-href="{% url 'complete_todo_ajax' todo_item.pk %}" method="post"> {% csrf_token %}
+                                <button type="submit" class="btn btn-success" id="complete_button_{{ todo_item.pk }}">l have already did this</button>
                             </form>
                         </div>
                     </li>

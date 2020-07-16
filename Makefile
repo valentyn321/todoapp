@@ -17,3 +17,7 @@ run :
 requirements: 
 	rm requirements.txt
 	pip freeze > requirements.txt
+
+# run functional tests
+func:
+	python manage.py test functional_tests

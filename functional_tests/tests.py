@@ -18,13 +18,28 @@ class NewVisitorClass(LiveServerTestCase):
     def tearDown(self):
         self.browser.quit()
 
+    # Be carefull there are wait_for_row_in_list_table and wait_for_NO_row_in_list_table 
+
     def wait_for_row_in_list_table(self, row_text):
         start_time = time.time()
         while True:
             try:
-                table = self.browser.find_element_by_id('id_list_table')
-                rows = table.find_elements_by_tag_name('tr')
+                table = self.browser.find_element_by_id('ul_coming')
+                rows = table.find_elements_by_tag_name('span')
                 self.assertIn(row_text, [row.text for row in rows])
+                return
+            except (AssertionError, WebDriverException) as e:
+                if time.time() - start_time > self.MAX_WAIT:
+                    raise e
+                time.sleep(0.5)
+
+    def wait_for_NO_row_in_list_table(self, row_text):
+        start_time = time.time()
+        while True:
+            try:
+                table = self.browser.find_element_by_id('ul_coming')
+                rows = table.find_elements_by_tag_name('span')
+                self.assertNotIn(row_text, [row.text for row in rows])
                 return
             except (AssertionError, WebDriverException) as e:
                 if time.time() - start_time > self.MAX_WAIT:
@@ -78,44 +93,62 @@ class NewVisitorClass(LiveServerTestCase):
         log_in_button = self.browser.find_element_by_id('log_in_button')
         log_in_button.click()
 
+        # He see form, for adding a todo-item, and try to add item
+        # "study django at least one hour per day" in category "Study"
 
+        text = self.browser.find_element_by_id('id_text')
+        text.send_keys('study django at least one hour per day')
 
-    #     # She is invited to enter a to-do item straight away
-    #     inputbox = self.browser.find_element_by_id('id_new_item')
-    #     self.assertEqual(
-    #         inputbox.get_attribute('placeholder'),
-    #         'Enter here, what you have to do...'
-    #     )
+        self.browser.find_element_by_xpath("//select[@id='category_select']/option[text()='Study']").click()
 
-    #     # She types "Buy peacock feathers" into a text box (Edith's hobby
-    #     # is tying fly-fishing lures)
-    #     inputbox.send_keys('1: Buy peacock feathers')
+        self.browser.find_element_by_id('id_deadline').send_keys(Keys.CONTROL + "a")
+        self.browser.find_element_by_id('id_deadline').send_keys(Keys.DELETE)
+        self.browser.find_element_by_id('id_deadline').send_keys('2030-12-12')
 
-    #     # When she hits enter, the page updates, and now the page lists
-    #     # "1: Buy peacock feathers" as an item in a to-do list
-    #     inputbox.send_keys(Keys.ENTER)
+        self.browser.find_element_by_xpath("//button[@id='add_button']").click()
 
-    #     self.wait_for_row_in_list_table('1: Buy peacock feathers')
-    #     # There is still a text box inviting her to add another item. She
-    #     # enters "Use peacock feathers to make a fly" (Edith is very methodical)
-    #     inputbox = self.browser.find_element_by_id('id_new_item')
-    #     inputbox.send_keys('2: Use peacock feathers to make a fly')
-    #     inputbox.send_keys(Keys.ENTER)
-        
+        # Then, he see, that his item is in table "Coming tasks":
+        header_text = self.browser.find_element_by_tag_name('h3').text
+        self.assertIn('Coming tasks:', header_text)
 
-    #     # The page updates again, and now shows both items on her list
-    #     self.wait_for_row_in_list_table('1: Buy peacock feathers')
-    #     self.wait_for_row_in_list_table('2: Use peacock feathers to make a fly')
-        
+        self.wait_for_row_in_list_table('study django at least one hour per day')
 
-    #     # Edith wonders whether the site will remember her list. Then she sees
-    #     # that the site has generated a unique URL for her -- there is some
-    #     # explanatory text to that effect.
+        # Then he wanna to add one more item in category "Sport":
+        # make 20 push ups
+
+        text = self.browser.find_element_by_id('id_text')
+        text.send_keys('make 20 push ups')
+
+        self.browser.find_element_by_xpath("//select[@id='category_select']/option[text()='Body & Health']").click()
+
+        self.browser.find_element_by_id('id_deadline').send_keys(Keys.CONTROL + "a")
+        self.browser.find_element_by_id('id_deadline').send_keys(Keys.DELETE)
+        self.browser.find_element_by_id('id_deadline').send_keys('2030-12-12')
+
+        self.browser.find_element_by_xpath("//button[@id='add_button']").click()
+
+        # Then, he see, that his items are in table "Coming tasks":
+        header_text = self.browser.find_element_by_tag_name('h3').text
+        self.assertIn('Coming tasks:', header_text)
+
+        self.wait_for_row_in_list_table('study django at least one hour per day')
+        self.wait_for_row_in_list_table('make 20 push ups')
+
+        # He studied for one hour and click on the button "I have already did this",
+        # and this task was removed from the page
+
+        self.browser.find_element_by_xpath("//button[@id='complete_button_1']").click()
+        self.wait_for_NO_row_in_list_table('study django at least one hour per day')
+
+        # He decided, that he will do exercise tomorrow, so he log out, and
+        # satisfied, he goes back to sleep
+
+        self.browser.find_element_by_xpath("//a[@id='log_out_button']").click()
+        header_text = self.browser.find_element_by_tag_name('h2').text
+        self.assertIn('You have been logged out!', header_text)
+
     
 
-    #     # She visits that URL - her to-do list is still there.
-
-    #     # Satisfied, she goes back to sleep
     
     # def test_multiple_users(self):
     #     # Edith starts a new to-do list

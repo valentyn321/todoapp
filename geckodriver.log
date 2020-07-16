@@ -290,3 +290,188 @@ Exiting due to channel error.
 1594803074295	Marionette	INFO	Listening on port 36707
 1594803074358	Marionette	WARN	TLS certificate errors will be ignored for this session
 1594803086830	Marionette	INFO	Stopped listening on port 36707
+1594803833976	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilex1suxN"
+
+(firefox:14630): GLib-GIO-WARNING **: 12:03:55.854: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594803837575	Marionette	INFO	Listening on port 40749
+1594803837594	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+1594810033093	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFpFFdr"
+
+(firefox:17717): GLib-GIO-WARNING **: 13:47:14.615: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594810035985	Marionette	INFO	Listening on port 34019
+1594810036014	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594810038955	Marionette	INFO	Stopped listening on port 34019
+1594810136129	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilef8uBki"
+
+(firefox:18166): GLib-GIO-WARNING **: 13:48:58.322: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594810139761	Marionette	INFO	Listening on port 46721
+1594810139848	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594810152062	Marionette	INFO	Stopped listening on port 46721
+1594810213269	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileYwTNdj"
+
+(firefox:18512): GLib-GIO-WARNING **: 13:50:14.584: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594810215987	Marionette	INFO	Listening on port 46561
+1594810216082	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594810228912	Marionette	INFO	Stopped listening on port 46561
+1594810344525	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBYVPGJ"
+
+(firefox:18905): GLib-GIO-WARNING **: 13:52:26.330: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594810347888	Marionette	INFO	Listening on port 32839
+1594810347944	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594810357585	Marionette	INFO	Stopped listening on port 32839
+1594810402742	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileEhTRNb"
+
+(firefox:19221): GLib-GIO-WARNING **: 13:53:24.508: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594810406136	Marionette	INFO	Listening on port 36047
+1594810406169	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594810410451	Marionette	INFO	Stopped listening on port 36047
+1594810438177	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileCE632F"
+
+(firefox:19512): GLib-GIO-WARNING **: 13:53:59.828: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594810441429	Marionette	INFO	Listening on port 38981
+1594810441491	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594810445558	Marionette	INFO	Stopped listening on port 38981
+1594810562486	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileNmY59n"
+
+(firefox:19865): GLib-GIO-WARNING **: 13:56:03.750: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594810565128	Marionette	INFO	Listening on port 40983
+1594810565196	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594810568850	Marionette	INFO	Stopped listening on port 40983
+1594810620162	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXZKAmY"
+
+(firefox:20145): GLib-GIO-WARNING **: 13:57:01.463: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594810622768	Marionette	INFO	Listening on port 40553
+1594810622775	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 203: NS_ERROR_FAILURE: Should pass a non-null uri
+1594810625803	Marionette	INFO	Stopped listening on port 40553
+1594810788125	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefVzWVj"
+
+(firefox:20567): GLib-GIO-WARNING **: 13:59:49.363: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594810790769	Marionette	INFO	Listening on port 43739
+1594810790836	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594810794099	Marionette	INFO	Stopped listening on port 43739
+1594811009760	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileMwX5mo"
+
+(firefox:21005): GLib-GIO-WARNING **: 14:03:31.090: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594811012398	Marionette	INFO	Listening on port 35159
+1594811012476	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594811020637	Marionette	INFO	Stopped listening on port 35159
+1594811119369	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileGzrjSk"
+
+(firefox:21379): GLib-GIO-WARNING **: 14:05:20.639: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594811122129	Marionette	INFO	Listening on port 40557
+1594811122181	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594811125948	Marionette	INFO	Stopped listening on port 40557
+1594811265372	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilenyyv24"
+
+(firefox:21785): GLib-GIO-WARNING **: 14:07:46.629: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594811267931	Marionette	INFO	Listening on port 39483
+1594811267982	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594811276000	Marionette	INFO	Stopped listening on port 39483
+1594811389641	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileI6ma4E"
+
+(firefox:22176): GLib-GIO-WARNING **: 14:09:50.910: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594811392246	Marionette	INFO	Listening on port 34153
+1594811392262	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594811400478	Marionette	INFO	Stopped listening on port 34153
+1594811416784	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileuOHZBS"
+
+(firefox:22451): GLib-GIO-WARNING **: 14:10:18.024: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594811419339	Marionette	INFO	Listening on port 40839
+1594811419396	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://code.jquery.com/jquery-3.5.1.js, line 5750: Script terminated by timeout at:
+jQuery.Event@https://code.jquery.com/jquery-3.5.1.js:5750:1
+fix@https://code.jquery.com/jquery-3.5.1.js:5538:4
+handler@https://code.jquery.com/jquery-3.5.1.js:8818:59
+
+1594811445169	Marionette	INFO	Stopped listening on port 40839
+1594924473825	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6mD7oj"
+
+(firefox:3163): GLib-GIO-WARNING **: 21:34:35.715: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594924477273	Marionette	INFO	Listening on port 45059
+1594924477339	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1594924533039	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilei1ZPMk"
+
+(firefox:3496): GLib-GIO-WARNING **: 21:35:34.946: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594924536190	Marionette	INFO	Listening on port 35227
+1594924536250	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594924557270	Marionette	INFO	Stopped listening on port 35227
+1594924684134	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0eDF96"
+
+(firefox:3940): GLib-GIO-WARNING **: 21:38:05.862: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594924687491	Marionette	INFO	Listening on port 34737
+1594924687591	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594924704310	Marionette	INFO	Stopped listening on port 34737
+1594924790817	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXknpoF"
+
+(firefox:4266): GLib-GIO-WARNING **: 21:39:52.584: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594924793953	Marionette	INFO	Listening on port 41393
+1594924794034	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594924800551	Marionette	INFO	Stopped listening on port 41393
+1594924952591	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilev7NNVk"
+
+(firefox:4623): GLib-GIO-WARNING **: 21:42:34.244: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594924955916	Marionette	INFO	Listening on port 41067
+1594924956021	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594924972356	Marionette	INFO	Stopped listening on port 41067
+1594925124364	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileqI9lIy"
+
+(firefox:5047): GLib-GIO-WARNING **: 21:45:26.365: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594925128022	Marionette	INFO	Listening on port 46781
+1594925128084	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594925146264	Marionette	INFO	Stopped listening on port 46781
+1594925403353	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile5CNwLa"
+
+(firefox:5622): GLib-GIO-WARNING **: 21:50:05.167: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594925406570	Marionette	INFO	Listening on port 43485
+1594925406667	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/NetworkGeolocationProvider.jsm, line 555: TypeError: xhr.response.location is undefined
+1594925418608	Marionette	INFO	Stopped listening on port 43485
+1594925747819	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXSInZZ"
+
+(firefox:6130): GLib-GIO-WARNING **: 21:55:49.568: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594925751133	Marionette	INFO	Listening on port 35883
+1594925751236	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594925757984	Marionette	INFO	Stopped listening on port 35883
+1594925775496	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileKV9CQk"
+
+(firefox:6421): GLib-GIO-WARNING **: 21:56:17.252: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594925778692	Marionette	INFO	Listening on port 44647
+1594925778713	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594925785257	Marionette	INFO	Stopped listening on port 44647
+1594926015031	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileRi4JdA"
+
+(firefox:6857): GLib-GIO-WARNING **: 22:00:16.800: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594926018346	Marionette	INFO	Listening on port 41395
+1594926018451	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594926024493	Marionette	INFO	Stopped listening on port 41395
+1594926130332	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileKJUacN"
+
+(firefox:7248): GLib-GIO-WARNING **: 22:02:12.089: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594926133818	Marionette	INFO	Listening on port 44367
+1594926133853	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js, line 7: TypeError: c is undefined
+1594926150934	Marionette	INFO	Stopped listening on port 44367
+1594926837378	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilen2LQu1"
+
+(firefox:8036): GLib-GIO-WARNING **: 22:13:59.486: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594926841396	Marionette	INFO	Listening on port 44791
+1594926841498	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594926848597	Marionette	INFO	Stopped listening on port 44791
+1594927635170	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0lWiOU"
+
+(firefox:9070): GLib-GIO-WARNING **: 22:27:17.103: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594927638525	Marionette	INFO	Listening on port 33173
+1594927638674	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594927645556	Marionette	INFO	Stopped listening on port 33173
+1594927932340	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile5uugjm"
+
+(firefox:9598): GLib-GIO-WARNING **: 22:32:14.302: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1594927935875	Marionette	INFO	Listening on port 38217
+1594927935956	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594927945235	Marionette	INFO	Stopped listening on port 38217
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
