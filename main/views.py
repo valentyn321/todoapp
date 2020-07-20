@@ -66,6 +66,8 @@ def add_new_ajax(request):
     content = request.POST["text"]
     category = Category.objects.get(id=request.POST["categ"])
     date = request.POST['date']
+    if date == '':
+        date = str(current_date)[:10] + ' 23:59'
     if content != "":
         complete = False
         created_obj = Todo.objects.create(

@@ -101,10 +101,6 @@ class NewVisitorClass(LiveServerTestCase):
 
         self.browser.find_element_by_xpath("//select[@id='category_select']/option[text()='Study']").click()
 
-        self.browser.find_element_by_id('id_deadline').send_keys(Keys.CONTROL + "a")
-        self.browser.find_element_by_id('id_deadline').send_keys(Keys.DELETE)
-        self.browser.find_element_by_id('id_deadline').send_keys('2030-12-12')
-
         self.browser.find_element_by_xpath("//button[@id='add_button']").click()
 
         # Then, he see, that his item is in table "Coming tasks":
@@ -120,10 +116,6 @@ class NewVisitorClass(LiveServerTestCase):
         text.send_keys('make 20 push ups')
 
         self.browser.find_element_by_xpath("//select[@id='category_select']/option[text()='Body & Health']").click()
-
-        self.browser.find_element_by_id('id_deadline').send_keys(Keys.CONTROL + "a")
-        self.browser.find_element_by_id('id_deadline').send_keys(Keys.DELETE)
-        self.browser.find_element_by_id('id_deadline').send_keys('2030-12-12')
 
         self.browser.find_element_by_xpath("//button[@id='add_button']").click()
 
