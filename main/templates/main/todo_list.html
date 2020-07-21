@@ -78,7 +78,7 @@
 {% endblock content %}
 
 {% block javascript %}
-    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <script src="{% static 'main/js/gijgo.min.js' %}"></script>
     <script>
         $('#id_deadline').datetimepicker({ 
             footer: true, 
