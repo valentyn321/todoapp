@@ -25,7 +25,7 @@ SECRET_KEY = 'm!om-s-4jzta)e6-2&ve5z+0#3f-f#9nqcy_=h6#=ckgcpb0$('
 # SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = [
     'todol1stapp.herokuapp.com',
     '127.0.0.1'
@@ -138,4 +138,4 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = 'login'
 
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
