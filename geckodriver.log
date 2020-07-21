@@ -537,3 +537,118 @@ JavaScript error: http://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-
 1595253677617	Marionette	WARN	TLS certificate errors will be ignored for this session
 JavaScript error: http://localhost:47321/ line 129 > scriptElement, line 2: TypeError: $(...).datetimepicker is not a function
 1595253688055	Marionette	INFO	Stopped listening on port 39363
+1595254543182	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilejOWnjS"
+
+(firefox:16162): GLib-GIO-WARNING **: 17:15:44.691: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595254546092	Marionette	INFO	Listening on port 36101
+1595254546191	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:35277/ line 129 > scriptElement, line 2: TypeError: $(...).datetimepicker is not a function
+1595254549921	Marionette	INFO	Stopped listening on port 36101
+1595346099810	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile52w482"
+
+(firefox:13757): GLib-GIO-WARNING **: 18:41:41.138: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595346101725	Marionette	INFO	Listening on port 39201
+1595346101821	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 281: NS_ERROR_FAILURE: Should pass a non-null uri
+1595346109359	Marionette	INFO	Stopped listening on port 39201
+1595346816858	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilex7aNIo"
+
+(firefox:16024): GLib-GIO-WARNING **: 18:53:38.145: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595346819079	Marionette	INFO	Listening on port 36771
+1595346819165	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595346829411	Marionette	INFO	Stopped listening on port 36771
+1595346865133	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileeNOcIF"
+
+(firefox:16409): GLib-GIO-WARNING **: 18:54:26.348: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595346867538	Marionette	INFO	Listening on port 41149
+1595346867547	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:36913/ line 129 > scriptElement, line 2: TypeError: $(...).datetimepicker is not a function
+1595346875682	Marionette	INFO	Stopped listening on port 41149
+1595347462134	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileAyZX0w"
+
+(firefox:17951): GLib-GIO-WARNING **: 19:04:23.420: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347464358	Marionette	INFO	Listening on port 36777
+1595347464443	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:50005/ line 129 > scriptElement, line 2: TypeError: $(...).datetimepicker is not a function
+1595347474459	Marionette	INFO	Stopped listening on port 36777
+1595347479022	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile7iONwL"
+
+(firefox:18246): GLib-GIO-WARNING **: 19:04:40.230: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347481344	Marionette	INFO	Listening on port 37869
+1595347481428	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595347490162	Marionette	INFO	Stopped listening on port 37869
+1595347518629	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileTXX6Fy"
+
+(firefox:18584): GLib-GIO-WARNING **: 19:05:19.898: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347520939	Marionette	INFO	Listening on port 35341
+1595347521039	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:34927/ line 129 > scriptElement, line 2: TypeError: $(...).datetimepicker is not a function
+1595347529243	Marionette	INFO	Stopped listening on port 35341
+1595347532906	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilelVDlK0"
+
+(firefox:18866): GLib-GIO-WARNING **: 19:05:34.110: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347535032	Marionette	INFO	Listening on port 42261
+1595347535113	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595347543905	Marionette	INFO	Stopped listening on port 42261
+1595347561888	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileeXh2WM"
+
+(firefox:19182): GLib-GIO-WARNING **: 19:06:03.113: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347564233	Marionette	INFO	Listening on port 33155
+1595347564295	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:41377/ line 129 > scriptElement, line 2: TypeError: $(...).datetimepicker is not a function
+JavaScript error: http://localhost:41377/ line 129 > scriptElement, line 2: TypeError: $(...).datetimepicker is not a function
+1595347572380	Marionette	INFO	Stopped listening on port 33155
+1595347576007	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileewHKgf"
+
+(firefox:19460): GLib-GIO-WARNING **: 19:06:17.177: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347578230	Marionette	INFO	Listening on port 38749
+1595347578316	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595347587085	Marionette	INFO	Stopped listening on port 38749
+1595347624071	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileuHoO0P"
+
+(firefox:19835): GLib-GIO-WARNING **: 19:07:05.271: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347626204	Marionette	INFO	Listening on port 45569
+1595347626277	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:37241/ line 129 > scriptElement, line 2: TypeError: $(...).datetimepicker is not a function
+1595347634644	Marionette	INFO	Stopped listening on port 45569
+console.error: services.settings: 
+  main/cfr-fxa Signature failed  TypeError: NetworkError when attempting to fetch resource.
+console.error: services.settings: 
+  main/messaging-experiments Signature failed  TypeError: NetworkError when attempting to fetch resource.
+console.error: services.settings: 
+  main/fxmonitor-breaches Signature failed  TypeError: NetworkError when attempting to fetch resource.
+1595347638006	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilewKNsFh"
+
+(firefox:20110): GLib-GIO-WARNING **: 19:07:19.233: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347640324	Marionette	INFO	Listening on port 38425
+1595347640413	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: "Store does not have a valid reducer. Make sure the argument passed to combineReducers is an object whose values are reducers."
+1595347680102	Marionette	INFO	Stopped listening on port 38425
+1595347691494	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile9sPRnn"
+
+(firefox:20489): GLib-GIO-WARNING **: 19:08:12.768: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347693701	Marionette	INFO	Listening on port 40115
+1595347693801	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:34863/ line 129 > scriptElement, line 2: TypeError: $(...).datetimepicker is not a function
+1595347704030	Marionette	INFO	Stopped listening on port 40115
+1595347708600	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileAiWvJF"
+
+(firefox:20777): GLib-GIO-WARNING **: 19:08:29.781: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347710730	Marionette	INFO	Listening on port 42153
+1595347710808	Marionette	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1595347736977	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile5y8KAx"
+
+(firefox:21090): GLib-GIO-WARNING **: 19:08:58.185: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347739409	Marionette	INFO	Listening on port 46733
+1595347739490	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://localhost:58765/ line 129 > scriptElement, line 2: TypeError: $(...).datetimepicker is not a function
+1595347747584	Marionette	INFO	Stopped listening on port 46733
+1595347751253	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilexr7Ok4"
+
+(firefox:21361): GLib-GIO-WARNING **: 19:09:12.470: /etc/xdg/kde-mimeapps.list contains a [Added Associations] group, but it is not permitted here.  Only the non-desktop-specific mimeapps.list file may add or remove associations.
+1595347753505	Marionette	INFO	Listening on port 43793
+1595347753560	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595347762785	Marionette	INFO	Stopped listening on port 43793

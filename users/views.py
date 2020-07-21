@@ -1,11 +1,15 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import Profile
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-from django.contrib.auth.decorators import login_required
+
 from django.views.generic import View 
 from django.views.decorators.csrf import csrf_exempt
+
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+
+from .models import Profile
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
 
 class RegisterView(View): #class-based register view
@@ -19,12 +23,15 @@ class RegisterView(View): #class-based register view
         profile = Profile()
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data.get('username')
             user = form.save(commit=False)
             user.save()
             profile.user = user
             profile.save()            
-            messages.success(request, 'Account created successfully!.')
+            messages.success(request, 'Account created successfully!')
+            new_user = authenticate(username=form.cleaned_data['username'],
+                                    password=form.cleaned_data['password1'],
+                                    )
+            login(request, new_user)
             return redirect('home')
         else:
             messages.warning(request, 'Something wrong with your data, check all info one more time :(')

@@ -18,6 +18,10 @@ requirements:
 	rm requirements.txt
 	pip freeze > requirements.txt
 
+# run all tests
+test:
+	python manage.py test
+
 # run functional tests
 func:
 	python manage.py test functional_tests

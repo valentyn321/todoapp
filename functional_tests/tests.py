@@ -80,19 +80,6 @@ class NewVisitorClass(LiveServerTestCase):
         sing_up_button = self.browser.find_element_by_id('sing_up_button')
         sing_up_button.click()
 
-        # And try to login
-        header_text = self.browser.find_element_by_tag_name('h2').text
-        self.assertIn('Log In!', header_text)
-
-        username = self.browser.find_element_by_id('id_username')
-        username.send_keys('john22')
-
-        password = self.browser.find_element_by_id('id_password')
-        password.send_keys('tester123')
-
-        log_in_button = self.browser.find_element_by_id('log_in_button')
-        log_in_button.click()
-
         # He see form, for adding a todo-item, and try to add item
         # "study django at least one hour per day" in category "Study"
 
@@ -127,7 +114,7 @@ class NewVisitorClass(LiveServerTestCase):
         self.wait_for_row_in_list_table('make 20 push ups')
 
         # He studied for one hour and click on the button "I have already did this",
-        # and this task was removed from the page
+        # and this task was removed from the table coming tasks
 
         self.browser.find_element_by_xpath("//button[@id='complete_button_1']").click()
         self.wait_for_NO_row_in_list_table('study django at least one hour per day')
@@ -142,48 +129,119 @@ class NewVisitorClass(LiveServerTestCase):
     
 
     
-    # def test_multiple_users(self):
-    #     # Edith starts a new to-do list
-    #     self.browser.get(self.live_server_url)
-    #     inputbox = self.browser.find_element_by_id('id_new_item')
-    #     inputbox.send_keys("1: Buy peacock feathers")
-    #     inputbox.send_keys(Keys.ENTER)
-    #     self.wait_for_row_in_list_table('1: Buy peacock feathers')
+    def test_multiple_users(self):
+        # John has heard about a cool new online to-do app. He wanna
+        # to try it.
+        self.browser.get(self.live_server_url)
 
-    #     # She notices that her list has a unique URL
-    #     edith_list_url = self.browser.current_url
-    #     self.assertRegex(edith_list_url, '/lists/.+')
+        # He notices the page title mention to-do lists
+        self.assertIn('ToDo', self.browser.title)
+        # Also, he realized, that he is on log in page
+        header_text = self.browser.find_element_by_tag_name('h2').text
+        self.assertIn('Log In!', header_text)
+        # John haven't got accout, so he clicked on link "Sign Up"
+        sign_up_link = self.browser.find_element_by_id('sing_up_link')
+        sign_up_link.click()
+        # John was redirected to sign up page
+        header_text = self.browser.find_element_by_tag_name('h2').text
+        self.assertEqual('Plan your life with us!', header_text)
 
-    #     # Now a new user, Francis, comes along to the site.
+        # He decided to sing up
+        username = self.browser.find_element_by_id('id_username')
+        username.send_keys('john22')
 
-    #     ## We use a new browser session to make sure that no information
-    #     ## of Edith's is coming through from cookies etc
-    #     self.browser.quit()
-    #     self.browser = webdriver.Firefox(executable_path=r'/home/valentyn/Documents/tdd-book/code/geckodriver')
+        email = self.browser.find_element_by_id('id_email')
+        email.send_keys('john22@gmail.com')
 
-    #     # Francis visits the home page.  There is no sign of Edith's
-    #     # list
-    #     self.browser.get(self.live_server_url)
-    #     page_text = self.browser.find_element_by_tag_name('body').text
-    #     self.assertNotIn('Buy peacock feathers', page_text)
-    #     self.assertNotIn('make a fly', page_text)
+        password1 = self.browser.find_element_by_id('id_password1')
+        password1.send_keys('tester123')
 
-    #     # Francis starts a new list by entering a new item. He
-    #     # is less interesting than Edith...
-    #     inputbox = self.browser.find_element_by_id('id_new_item')
-    #     inputbox.send_keys('1: Buy milk')
-    #     inputbox.send_keys(Keys.ENTER)
-    #     self.wait_for_row_in_list_table('1: Buy milk')
+        password2 = self.browser.find_element_by_id('id_password2')
+        password2.send_keys('tester123')
 
-    #     # Francis gets his own unique URL
-    #     francis_list_url = self.browser.current_url
-    #     self.assertRegex(francis_list_url, '/lists/.+')
-    #     self.assertNotEqual(francis_list_url, edith_list_url)
+        sing_up_button = self.browser.find_element_by_id('sing_up_button')
+        sing_up_button.click()
 
-    #     # Again, there is no trace of Edith's list
-    #     page_text = self.browser.find_element_by_tag_name('body').text
-    #     self.assertNotIn('Buy peacock feathers', page_text)
-    #     self.assertIn('Buy milk', page_text)
+        # He doesn't see John's todo-list:
+        self.wait_for_NO_row_in_list_table('make 20 push ups')
 
-    #     # Satisfied, they both go back to sleep
+        # He see form, for adding a todo-item, and try to add item
+        # "study django at least one hour per day" in category "Study"
 
+        text = self.browser.find_element_by_id('id_text')
+        text.send_keys('study django at least one hour per day')
+
+        self.browser.find_element_by_xpath("//select[@id='category_select']/option[text()='Study']").click()
+
+        self.browser.find_element_by_xpath("//button[@id='add_button']").click()
+
+        # Then, he see, that his item is in table "Coming tasks":
+        header_text = self.browser.find_element_by_tag_name('h3').text
+        self.assertIn('Coming tasks:', header_text)
+
+        self.wait_for_row_in_list_table('study django at least one hour per day')
+
+        # But now, he has no time, because he has go to bed, so he tell to
+        # his friend Tom to check out this todo list, and go to sleep
+
+        self.browser.find_element_by_xpath("//a[@id='log_out_button']").click()
+        header_text = self.browser.find_element_by_tag_name('h2').text
+        self.assertIn('You have been logged out!', header_text)
+
+        # Tom goes to the todo app
+        self.browser.get(self.live_server_url)
+
+        # He realized, that he is on log in page
+        header_text = self.browser.find_element_by_tag_name('h2').text
+        self.assertIn('Log In!', header_text)
+        # Tom haven't got accout, so he clicked on link "Sign Up"
+        sign_up_link = self.browser.find_element_by_id('sing_up_link')
+        sign_up_link.click()
+        # Tom was redirected to sign up page
+        header_text = self.browser.find_element_by_tag_name('h2').text
+        self.assertEqual('Plan your life with us!', header_text)
+
+        # He decided to sing up
+        username = self.browser.find_element_by_id('id_username')
+        username.send_keys('tomas_678')
+
+        email = self.browser.find_element_by_id('id_email')
+        email.send_keys('tomas_678@gmail.com')
+
+        password1 = self.browser.find_element_by_id('id_password1')
+        password1.send_keys('tester123')
+
+        password2 = self.browser.find_element_by_id('id_password2')
+        password2.send_keys('tester123')
+
+        sing_up_button = self.browser.find_element_by_id('sing_up_button')
+        sing_up_button.click()
+
+        # He see form, for adding a todo-item, and try to add item
+        # "make 20 push ups" in category "Body & Health"
+
+        text = self.browser.find_element_by_id('id_text')
+        text.send_keys('make 20 push ups')
+
+        self.browser.find_element_by_xpath("//select[@id='category_select']/option[text()='Body & Health']").click()
+
+        self.browser.find_element_by_xpath("//button[@id='add_button']").click()
+
+        # Then, he see, that his item is in table "Coming tasks":
+        header_text = self.browser.find_element_by_tag_name('h3').text
+        self.assertIn('Coming tasks:', header_text)
+
+        self.wait_for_row_in_list_table('make 20 push ups')
+
+        # He did his exersices and click on the button "I have already did this",
+        # and this task was removed from the table coming tasks
+        
+        self.browser.find_element_by_xpath("//button[@id='complete_button_4']").click()
+        self.wait_for_NO_row_in_list_table('make 20 push ups')
+
+        # He decided to log out, and
+        # satisfied, he goes to sleep
+
+        self.browser.find_element_by_xpath("//a[@id='log_out_button']").click()
+        header_text = self.browser.find_element_by_tag_name('h2').text
+        self.assertIn('You have been logged out!', header_text)
